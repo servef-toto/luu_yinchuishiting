@@ -10,12 +10,17 @@ public class DumpDemo {
     private static final int _1MB = 1024 * 1024;
     public static void main(String[] args) {
         System.out.println("-------------mytime----------------");
-        Map<String,Object> m = new HashMap<>();
-        int i = 0;
+//        Map<String,Object> m = new HashMap<>();
+//        int i = 0;
+//        do{
+//            byte[] test = new byte[_1MB];
+//            m.put(String.valueOf(i), test);
+//            i++;
+//        }while(i<100000);
+
         do{
-            byte[] test = new byte[_1MB];
-            m.put(String.valueOf(i), test);
-            i++;
-        }while(i<100000);
+            System.out.println("------死循环-------");
+        }while(true);
+
     }
 }
