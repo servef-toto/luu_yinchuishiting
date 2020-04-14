@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.luu.druid.druid_demo.mapper.mall.TestMapper">
+
+    <select id="mallNoAnno" resultType="java.lang.String">
+        select id from oms_order where id = '12'
+    </select>
+    <select id="mallExitAnno" resultType="java.lang.String">
+        select id from oms_order where id = '13'
+    </select>
+</mapper>

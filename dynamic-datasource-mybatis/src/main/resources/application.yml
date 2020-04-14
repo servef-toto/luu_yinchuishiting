@@ -1,0 +1,37 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: dynamic
+  datasource:
+    mall:
+      url: jdbc:mysql://rm-wz9yy0528x91z1iqdco.mysql.rds.aliyuncs.com/luu_mall?useSSL=false&useUnicode=true&characterEncoding=UTF-8
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      username: root # 数据库账号
+      password: root0319@ # 数据库密码
+      type: com.alibaba.druid.pool.DruidDataSource # 设置类型为 DruidDataSource
+      min-idle: 0 # 池中维护的最小空闲连接数，默认为 0 个。
+      max-active: 20 # 池中最大连接数，包括闲置和使用中的连接，默认为 8 个。
+    # 用户数据源配置
+    users:
+      url: jdbc:mysql://rm-wz9yy0528x91z1iqdco.mysql.rds.aliyuncs.com/luu_user_center?useSSL=false&useUnicode=true&characterEncoding=UTF-8
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      username: root # 数据库账号
+      password: root0319@ # 数据库密码
+      type: com.alibaba.druid.pool.DruidDataSource # 设置类型为 DruidDataSource
+      # Druid 自定义配置，对应 DruidDataSource 中的 setting 方法的属性
+      min-idle: 0 # 池中维护的最小空闲连接数，默认为 0 个。
+      max-active: 20 # 池中最大连接数，包括闲置和使用中的连接，默认为 8 个。
+    # Druid 自定义配置，对应 DruidDataSource 中的 setting 方法的属性
+    druid: # 设置 Druid 连接池的自定义配置。然后 DruidDataSourceAutoConfigure 会自动化配置 Druid 连接池。
+      filter:
+        stat: # 配置 StatFilter ，对应文档 https://github.com/alibaba/druid/wiki/%E9%85%8D%E7%BD%AE_StatFilter
+          log-slow-sql: true # 开启慢查询记录
+          slow-sql-millis: 5000 # 慢 SQL 的标准，单位：毫秒
+          merge-sql: true # SQL合并配置
+      stat-view-servlet: # 配置 StatViewServlet ，对应文档 https://github.com/alibaba/druid/wiki/%E9%85%8D%E7%BD%AE_StatViewServlet%E9%85%8D%E7%BD%AE
+        enabled: true # 是否开启 StatViewServlet
+        login-username: root # 账号
+        login-password: root # 密码
+
